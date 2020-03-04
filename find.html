@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Product</title>
+	<script>
+		let bucketList = [
+	{
+		country:'Bangladesh',
+		tourBudget: 20000,
+		places: ['Sylhet', 'Coxs bazar', 'Sundarban'],
+	},
+	{
+		country:'India',
+		tourBudget: 30000,
+		places: ['Tajmahal', 'Calcutta', 'Shilong', 'kashmir'],
+		food:['fd1', 'fd2', 'chocolate']
+	},
+	{
+		country:'Thailand',
+		tourBudget: 35000,
+		places: ['Railay Beach', 'Koh Phi Phi', 'Khao Yai National Park'],
+		food:['fd3', 'fd4', 'chocolate']
+	},
+	
+	{
+		country:'Indonesia',
+		tourBudget: 40000,
+		places: ['Bali', 'Borobudur', 'Mount Bromo', 'Gili Islands'],
+		food:['fd10', 'fd20', 'fish']
+	},
+	
+	{
+		country:'Dubai',
+		tourBudget: 50000,
+		places: ['Burj Khalifa', 'Dubai Museum', 'Jumeirah Mosque', 'Dubai Mall'],
+		food:['fd15', 'fd25']
+	},
+	
+	{
+		country:'Brazil',
+		tourBudget: 50000,
+		places: ['Carnaval', 'Rio de Janeiro', 'Salvador Pelourinho', 'Iguaçu Falls'],
+		food:['Feijoada', 'Quindim', 'chocolate']
+	},
+	{
+		country:'Canada',
+		tourBudget: 200000,
+		places: ['Niagara Falls', 'Montreal', 'Toronto', 'Vancouver'],
+		food:['Maple Syrup', 'Butter Tarts', 'Canadian Bacon']
+	}
+]
+
+let alreadyVisited = [
+	{
+		country:'Dubai',
+		cost: 48000,
+		places: ['Burj Khalifa', 'Dubai Museum', 'Jumeirah Mosque', 'Dubai Mall', 'Bastakia'],
+		food:['fd15', 'fd35']
+	},
+	
+	{
+		country:'Thailand',
+		cost: 42000,
+		places: ['Railay Beach', 'Khao Yai National Park'],
+		food:['fd3', 'Tom Yum Gung', 'chocolate']
+	},
+	
+	{
+		country:'Canada',
+		cost: 200000,
+		places: ['Niagara Falls', 'Montreal', 'Toronto', 'Calgary', 'Victoria'],
+		food:['Maple Syrup', 'Butter Tarts', 'Canadian Bacon', 'Nanaimo Bars']
+	}
+]
+ 
+
+ /* 0. Find out the total probable cost to visit all the places of his plan/bucketList. */
+
+   document.write("<u><h2>Answer: 0. Find out the total probable cost to visit all the places of his plan/bucketList. </h2></u>");
+
+  let pCost = 0;
+
+   for(let i = 0; i < bucketList.length; i++) {
+
+      pCost += bucketList[i].tourBudget;
+
+   }
+
+   document.write(pCost);
+
+
+
+
+  /*  1. Find the total tour cost of his wish list. if a place is visited take the actual cost when calculating the total cost. */
+
+  document.write("<u><h2>Answer: 1. Find the total tour cost of his wish list. if a place is visited take the actual cost when calculating the total cost. </h2></u>");
+
+
+    let tmpCost = 0;
+
+    let totalCost = 0;
+
+    for(let i = 0; i < bucketList.length; i++) {
+
+    	tmpCost = bucketList[i].tourBudget;
+
+    	for(let j = 0; j < alreadyVisited.length; j++) {
+
+    	    if(bucketList[i].country == alreadyVisited[j].country) {
+
+    	    	tmpCost = alreadyVisited[j].cost;
+
+    	        break;
+    	    }
+    	}
+    	totalCost += tmpCost;
+    	
+    }
+    document.write(totalCost);
+
+
+
+    /* 2. Print out the counties he did not visit. */
+
+    document.write("<u><h2>Answer: 2. Print out the counties he did not visit. </h2></u>");
+   
+   for(let i = 0; i < bucketList.length; i++) {
+
+    	for(let j = 0; j < alreadyVisited.length; j++) {
+
+         
+
+      	}
+
+      }
+
+     
+      	
+
+
+    /* 3. Print out all the unique places he wish to visit. */
+
+    document.write("<u><h2>Answer: 3. Print out all the unique places he wish to visit. </h2></u>");
+
+    for(let i = 0; i < bucketList.length; i++) {
+
+    	let unique_places = bucketList[i].places;
+
+    	for(let j = 0; j < unique_places.length; j++) {
+
+    		document.write(unique_places[j] + ", ");
+
+    	}
+    }
+
+
+    /* 4. Print All the unique places he wish and had visited. */
+
+    document.write("<u><h2>Answer: 4. Print All the unique places he wish and had visited. </h2></u>");
+
+    for(let i = 0; i < bucketList.length; i++) {
+
+    	for(let j = 0; j < alreadyVisited.length; j++) {
+
+           let visited_places = alreadyVisited[j].places;
+
+    		if(bucketList[i].country == alreadyVisited[j].country) {
+              
+              for(let v = 0; v < visited_places.length; v++) {
+
+              	document.write(visited_places[v] + ", ");
+              }
+    			
+    		}
+    	}
+    }
+
+
+  
+
+    
+
+
+
+
+  
+
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>
