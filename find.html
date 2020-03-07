@@ -122,26 +122,41 @@ let alreadyVisited = [
 
     /* 2. Print out the counties he did not visit. */
 
-    document.write("<u><h2>Answer: 2. Print out the counties he did not visit. </h2></u>");
+    document.write("<u><h2>Answer: 2. Print out the countries he did not visit. </h2></u>");
    
-   for(let i = 0; i < bucketList.length; i++) {
+    
+    let not_visted_countries = [];
 
-    	for(let j = 0; j < alreadyVisited.length; j++) {
+    for(let i = 0; i < bucketList.length; i++) {
+       
+      not_visted_countries.push(bucketList[i].country);
 
+    }
+
+
+    let visited_countries = [];
+
+    for(let i = 0; i < alreadyVisited.length; i++) {
+       
+       visited_countries.push(alreadyVisited[i].country);
+
+    }
+
+
+    let wish_to_visited = not_visted_countries.filter(function(data) {
          
+         return !visited_countries.includes(data);
 
-      	}
+    });
 
-      }
-
+    document.write(wish_to_visited);
      
-      	
 
 
     /* 3. Print out all the unique places he wish to visit. */
 
     document.write("<u><h2>Answer: 3. Print out all the unique places he wish to visit. </h2></u>");
-
+    
     for(let i = 0; i < bucketList.length; i++) {
 
     	let unique_places = bucketList[i].places;
@@ -152,6 +167,7 @@ let alreadyVisited = [
 
     	}
     }
+  
 
 
     /* 4. Print All the unique places he wish and had visited. */
@@ -178,7 +194,105 @@ let alreadyVisited = [
 
   
 
+  /* 5. Print out the places he wished to visit but could not manage to visit. [Hint: ] */
+
+    document.write("<u><h2>Answer: 5. Print out the places he wished to visit but could not manage to visit. [Hint: ] </h2></u>");
+
+
+        let wish_list = [];
+
+        for(let i = 0; i < bucketList.length; i++) {
+
+        	let wish_places = bucketList[i].places;
+
+        	for(let j = 0; j < wish_places.length; j++) {
+
+        		wish_list.push(wish_places[j]);
+        	}
+
+
+        }
+
+
+        
+
+
+        let not_wish_list = [];
+
+        for(let i = 0; i < alreadyVisited.length; i++) {
+
+        	let not_wish_places = alreadyVisited[i].places;
+
+        	for(let j = 0; j < not_wish_places.length; j++) {
+
+        		not_wish_list.push(not_wish_places[j]);
+        	}
+
+
+        }
+
+
+      
+
+
+        let not_manage_visit = wish_list.filter(function(data) {
+              
+              return !not_wish_list.includes(data); 
+
+        });
+
+        document.write(not_manage_visit);
+
+
+
+
+  
+  /* 6. Print out all the places he did not plan but he visited. [Hint: ] */
     
+   document.write("<u><h2>Answer: 6. Print out all the places he did not plan but he visited. [Hint: ] </h2></u>");
+
+
+     let plan_visited_places = [];
+
+     for(let i = 0; i < bucketList.length; i++) {
+          
+          let all_plan_places = bucketList[i].places;
+
+          for(let j = 0; j < all_plan_places.length; j++) {
+            
+            plan_visited_places.push(all_plan_places[j]);
+
+          }
+
+     }
+
+
+     let not_plan_visited_places = [];
+
+     for(let i = 0; i < alreadyVisited.length; i++) {
+
+     	let not_plan_visited = alreadyVisited[i].places;
+
+     	for(let j = 0; j < not_plan_visited.length; j++) {
+
+     		not_plan_visited_places.push(not_plan_visited[j]);
+     	}
+     }
+
+
+
+     let not_plan_but_visited = not_plan_visited_places.filter(function(data) {
+
+     	return !plan_visited_places.includes(data);
+
+
+     });
+
+
+
+     document.write(not_plan_but_visited);
+
+
 
 
 
@@ -186,8 +300,10 @@ let alreadyVisited = [
   
 
 	</script>
+	
 </head>
 <body>
+
 
 
 </body>
