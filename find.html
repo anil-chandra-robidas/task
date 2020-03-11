@@ -2,75 +2,83 @@
 <html>
 <head>
 	<title>Search Product</title>
-	<script>
-		let bucketList = [
-	{
-		country:'Bangladesh',
-		tourBudget: 20000,
-		places: ['Sylhet', 'Coxs bazar', 'Sundarban'],
-	},
-	{
-		country:'India',
-		tourBudget: 30000,
-		places: ['Tajmahal', 'Calcutta', 'Shilong', 'kashmir'],
-		food:['fd1', 'fd2', 'chocolate']
-	},
-	{
-		country:'Thailand',
-		tourBudget: 35000,
-		places: ['Railay Beach', 'Koh Phi Phi', 'Khao Yai National Park'],
-		food:['fd3', 'fd4', 'chocolate']
-	},
 	
-	{
-		country:'Indonesia',
-		tourBudget: 40000,
-		places: ['Bali', 'Borobudur', 'Mount Bromo', 'Gili Islands'],
-		food:['fd10', 'fd20', 'fish']
-	},
 	
-	{
-		country:'Dubai',
-		tourBudget: 50000,
-		places: ['Burj Khalifa', 'Dubai Museum', 'Jumeirah Mosque', 'Dubai Mall'],
-		food:['fd15', 'fd25']
-	},
-	
-	{
-		country:'Brazil',
-		tourBudget: 50000,
-		places: ['Carnaval', 'Rio de Janeiro', 'Salvador Pelourinho', 'Iguaçu Falls'],
-		food:['Feijoada', 'Quindim', 'chocolate']
-	},
-	{
-		country:'Canada',
-		tourBudget: 200000,
-		places: ['Niagara Falls', 'Montreal', 'Toronto', 'Vancouver'],
-		food:['Maple Syrup', 'Butter Tarts', 'Canadian Bacon']
-	}
+</head>
+<body>
+
+
+
+
+<script>
+    let bucketList = [
+  {
+    country:'Bangladesh',
+    tourBudget: 20000,
+    places: ['Sylhet', 'Coxs bazar', 'Sundarban'],
+  },
+  {
+    country:'India',
+    tourBudget: 30000,
+    places: ['Tajmahal', 'Calcutta', 'Shilong', 'kashmir'],
+    food:['fd1', 'fd2', 'chocolate']
+  },
+  {
+    country:'Thailand',
+    tourBudget: 35000,
+    places: ['Railay Beach', 'Koh Phi Phi', 'Khao Yai National Park'],
+    food:['fd3', 'fd4', 'chocolate']
+  },
+  
+  {
+    country:'Indonesia',
+    tourBudget: 40000,
+    places: ['Bali', 'Borobudur', 'Mount Bromo', 'Gili Islands'],
+    food:['fd10', 'fd20', 'fish']
+  },
+  
+  {
+    country:'Dubai',
+    tourBudget: 50000,
+    places: ['Burj Khalifa', 'Dubai Museum', 'Jumeirah Mosque', 'Dubai Mall'],
+    food:['fd15', 'fd25']
+  },
+  
+  {
+    country:'Brazil',
+    tourBudget: 50000,
+    places: ['Carnaval', 'Rio de Janeiro', 'Salvador Pelourinho', 'Iguaçu Falls'],
+    food:['Feijoada', 'Quindim', 'chocolate']
+  },
+  {
+    country:'Canada',
+    tourBudget: 200000,
+    places: ['Niagara Falls', 'Montreal', 'Toronto', 'Vancouver'],
+    food:['Maple Syrup', 'Butter Tarts', 'Canadian Bacon']
+  }
 ]
 
 let alreadyVisited = [
-	{
-		country:'Dubai',
-		cost: 48000,
-		places: ['Burj Khalifa', 'Dubai Museum', 'Jumeirah Mosque', 'Dubai Mall', 'Bastakia'],
-		food:['fd15', 'fd35']
-	},
-	
-	{
-		country:'Thailand',
-		cost: 42000,
-		places: ['Railay Beach', 'Khao Yai National Park'],
-		food:['fd3', 'Tom Yum Gung', 'chocolate']
-	},
-	
-	{
-		country:'Canada',
-		cost: 200000,
-		places: ['Niagara Falls', 'Montreal', 'Toronto', 'Calgary', 'Victoria'],
-		food:['Maple Syrup', 'Butter Tarts', 'Canadian Bacon', 'Nanaimo Bars']
-	}
+  {
+    country:'Dubai',
+    cost: 48000,
+    places: ['Burj Khalifa', 'Dubai Museum', 'Jumeirah Mosque', 'Dubai Mall', 'Bastakia'],
+    food:['fd15', 'fd35']
+  },
+  
+  {
+    country:'Thailand',
+    cost: 42000,
+    places: ['Railay Beach', 'Khao Yai National Park'],
+    food:['fd3', 'Tom Yum Gung', 'chocolate']
+  },
+  
+  {
+    country:'Canada',
+    cost: 200000,
+    places: ['Niagara Falls', 'Montreal', 'Toronto', 'Calgary', 'Victoria'],
+    food:['Maple Syrup', 'Butter Tarts', 'Canadian Bacon', 'Nanaimo Bars']
+  }
 ]
  
 
@@ -102,19 +110,19 @@ let alreadyVisited = [
 
     for(let i = 0; i < bucketList.length; i++) {
 
-    	tmpCost = bucketList[i].tourBudget;
+      tmpCost = bucketList[i].tourBudget;
 
-    	for(let j = 0; j < alreadyVisited.length; j++) {
+      for(let j = 0; j < alreadyVisited.length; j++) {
 
-    	    if(bucketList[i].country == alreadyVisited[j].country) {
+          if(bucketList[i].country == alreadyVisited[j].country) {
 
-    	    	tmpCost = alreadyVisited[j].cost;
+            tmpCost = alreadyVisited[j].cost;
 
-    	        break;
-    	    }
-    	}
-    	totalCost += tmpCost;
-    	
+              break;
+          }
+      }
+      totalCost += tmpCost;
+      
     }
     document.write(totalCost);
 
@@ -159,13 +167,13 @@ let alreadyVisited = [
     
     for(let i = 0; i < bucketList.length; i++) {
 
-    	let unique_places = bucketList[i].places;
+      let unique_places = bucketList[i].places;
 
-    	for(let j = 0; j < unique_places.length; j++) {
+      for(let j = 0; j < unique_places.length; j++) {
 
-    		document.write(unique_places[j] + ", ");
+        document.write(unique_places[j] + ", ");
 
-    	}
+      }
     }
   
 
@@ -176,19 +184,19 @@ let alreadyVisited = [
 
     for(let i = 0; i < bucketList.length; i++) {
 
-    	for(let j = 0; j < alreadyVisited.length; j++) {
+      for(let j = 0; j < alreadyVisited.length; j++) {
 
            let visited_places = alreadyVisited[j].places;
 
-    		if(bucketList[i].country == alreadyVisited[j].country) {
+        if(bucketList[i].country == alreadyVisited[j].country) {
               
               for(let v = 0; v < visited_places.length; v++) {
 
-              	document.write(visited_places[v] + ", ");
+                document.write(visited_places[v] + ", ");
               }
-    			
-    		}
-    	}
+          
+        }
+      }
     }
 
 
@@ -203,12 +211,12 @@ let alreadyVisited = [
 
         for(let i = 0; i < bucketList.length; i++) {
 
-        	let wish_places = bucketList[i].places;
+          let wish_places = bucketList[i].places;
 
-        	for(let j = 0; j < wish_places.length; j++) {
+          for(let j = 0; j < wish_places.length; j++) {
 
-        		wish_list.push(wish_places[j]);
-        	}
+            wish_list.push(wish_places[j]);
+          }
 
 
         }
@@ -221,12 +229,12 @@ let alreadyVisited = [
 
         for(let i = 0; i < alreadyVisited.length; i++) {
 
-        	let not_wish_places = alreadyVisited[i].places;
+          let not_wish_places = alreadyVisited[i].places;
 
-        	for(let j = 0; j < not_wish_places.length; j++) {
+          for(let j = 0; j < not_wish_places.length; j++) {
 
-        		not_wish_list.push(not_wish_places[j]);
-        	}
+            not_wish_list.push(not_wish_places[j]);
+          }
 
 
         }
@@ -271,19 +279,19 @@ let alreadyVisited = [
 
      for(let i = 0; i < alreadyVisited.length; i++) {
 
-     	let not_plan_visited = alreadyVisited[i].places;
+      let not_plan_visited = alreadyVisited[i].places;
 
-     	for(let j = 0; j < not_plan_visited.length; j++) {
+      for(let j = 0; j < not_plan_visited.length; j++) {
 
-     		not_plan_visited_places.push(not_plan_visited[j]);
-     	}
+        not_plan_visited_places.push(not_plan_visited[j]);
+      }
      }
 
 
 
      let not_plan_but_visited = not_plan_visited_places.filter(function(data) {
 
-     	return !plan_visited_places.includes(data);
+      return !plan_visited_places.includes(data);
 
 
      });
@@ -299,12 +307,7 @@ let alreadyVisited = [
 
   
 
-	</script>
-	
-</head>
-<body>
-
-
-
+  </script>
+  
 </body>
 </html>
